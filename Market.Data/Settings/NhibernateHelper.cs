@@ -19,6 +19,7 @@ namespace Market.Data
     {
         private static ISessionFactory _factory;
 
+
         private static ISessionFactory SessionFactory
         {
             get
@@ -31,7 +32,7 @@ namespace Market.Data
 
                     var fluentConfiguration = Fluently.Configure()
                         .Database(MsSqlConfiguration.MsSql2012
-                            .ConnectionString(@"Data Source=.;Initial Catalog=App-Market;Persist Security Info=True;User ID=sa;Password=s@123456")
+                            .ConnectionString(@"Data Source=.;Initial Catalog=App-Market;Integrated Security=True")
                             .ShowSql()
                         );
 

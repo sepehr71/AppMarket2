@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="Mappings\AMapping.cs" />
     <Compile Include="Mappings\ItemMap.cs" />
+    <Compile Include="Mappings\Moviemapping.cs" />
+    <Compile Include="Mappings\ProducerMapping.cs" />
     <Compile Include="Settings\NhibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Mappings\PurchaseOrderItemMap.cs" />

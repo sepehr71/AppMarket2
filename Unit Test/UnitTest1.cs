@@ -12,17 +12,17 @@ namespace Unit_Test
     [TestClass]
     public class UnitTest1
     {
-       
+
         [TestMethod]
         public void ItemTest()
         {
             using (var session = NhibernateHelper.OpenSession())
             {
-                var itemId = GetItemId(); 
+                var itemId = GetItemId();
                 Item item = session.Get<Item>(itemId);
 
-                    var res = session.Get<Item>(item.Id);
-                    Assert.AreEqual(item.Name, res.Name);
+                var res = session.Get<Item>(item.Id);
+                Assert.AreEqual(item.Name, res.Name);
             }
         }
         private Guid GetItemId()
@@ -106,8 +106,8 @@ namespace Unit_Test
                     var racckId = GetRackId();
                     Rack rack = session.Get<Rack>(racckId);
 
-                    
-                    PurchaseOrder po = new PurchaseOrder {CreationDate = DateTime.Now, Title = "purchase1"};
+
+                    PurchaseOrder po = new PurchaseOrder { CreationDate = DateTime.Now, Title = "purchase1" };
                     PurchaseOrderItem purchaseOrderItem = new PurchaseOrderItem
                     {
                         NetPrice = 30,
@@ -126,17 +126,5 @@ namespace Unit_Test
                 }
             }
         }
-
-        //public Object getitem()
-        //{
-        //    using (var session = NhibernateHelper.OpenSession())
-        //    {
-        //        var items = from u in session.Query<Item>()
-        //                    where u.Name == "pen"
-        //                    select u;
-
-        //        return items;
-        //    }
-        //}
     }
 }

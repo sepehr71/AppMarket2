@@ -43,6 +43,8 @@
     <Compile Include="Entity\A.cs" />
     <Compile Include="Entity\B.cs" />
     <Compile Include="Entity\Item.cs" />
+    <Compile Include="Entity\Movie.cs" />
+    <Compile Include="Entity\Producer.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
