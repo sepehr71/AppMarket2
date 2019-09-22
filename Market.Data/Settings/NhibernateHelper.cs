@@ -32,7 +32,7 @@ namespace Market.Data
 
                     var fluentConfiguration = Fluently.Configure()
                         .Database(MsSqlConfiguration.MsSql2012
-                            .ConnectionString(@"Data Source=.;Initial Catalog=App-Market;Integrated Security=True")
+                            .ConnectionString(@"Data Source=.;Initial Catalog=App-Market;User ID=sa;Password=s@123456")
                             .ShowSql()
                         );
 

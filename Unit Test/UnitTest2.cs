@@ -22,7 +22,7 @@ namespace Unit_Test
                         Item i1 = new Item { Name = "pen" };
                         SaleOrderItem soi1 = new SaleOrderItem { Quantity = 12, NetPrice = 1, Item = i1, TotalPrice = 12, UnitPrice = 1 };
 
-
+                        
                         //RackItemLevel ril = new RackItemLevel { CurrentQuantity = 80, Item = item, Rack = rack1, InQuantity = 23, OutQuantity = 23 };
                         session.Save(i1);
                         so1.SaleOrderItem.Add(soi1);
