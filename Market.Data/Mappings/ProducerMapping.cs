@@ -13,8 +13,8 @@ namespace Market.Data.Mappings
     {
         public void Override(AutoMapping<Producer> mapping)
         {
-            mapping.Id(x => x.Id);
-            mapping.HasManyToMany<Movie>(x => x.Movies).Cascade.All().Table("StoreProducer");
+            //mapping.Id(x => x.Id);
+            //mapping.HasManyToMany<Movie>(x => x.Movies).Cascade.All().Table("MovieProducer");
         }
     }
 }

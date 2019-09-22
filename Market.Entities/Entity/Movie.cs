@@ -17,11 +17,7 @@ namespace Market.Entities.Entity
         public virtual Guid Id { set; get; }
         public virtual string name { set; get; }
         public virtual ICollection<Producer> Producers { set; get; }
-        //public virtual void AddProducer(Movie movie)
-        //{
-        //    movie.Producers.Add(this);
-        //    Producers.Add(movie);
-        //}
+        
 
     }
 }

@@ -14,7 +14,7 @@ namespace Market.Data.Mappings
         public void Override(AutoMapping<Movie> mapping)
         {
             mapping.Id(x => x.Id);
-            mapping.HasManyToMany<Producer>(x => x.Producers).Cascade.All().Table("StoreProducer");
+            mapping.HasManyToMany<Producer>(x => x.Producers).Cascade.All().Table("MovieProducer");
         }
     }
 }

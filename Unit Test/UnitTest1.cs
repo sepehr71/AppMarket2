@@ -12,7 +12,6 @@ namespace Unit_Test
     [TestClass]
     public class UnitTest1
     {
-
         [TestMethod]
         public void ItemTest()
         {
@@ -106,6 +105,7 @@ namespace Unit_Test
                     var racckId = GetRackId();
                     Rack rack = session.Get<Rack>(racckId);
 
+                    //var item1111 = session.QueryOver<Item>().Where(x => x.Name == "pen");
 
                     PurchaseOrder po = new PurchaseOrder { CreationDate = DateTime.Now, Title = "purchase1" };
                     PurchaseOrderItem purchaseOrderItem = new PurchaseOrderItem

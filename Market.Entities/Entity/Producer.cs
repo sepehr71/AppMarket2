@@ -11,11 +11,11 @@ namespace Market.Entities.Entity
         public Producer()
         {
             Id = new Guid();
-            Movies = new List<Movie>();
+            //Movies = new List<Movie>();
         }
         public virtual Guid Id { get; set; }
         public virtual string Name { get; set; }
-        public virtual ICollection<Movie> Movies { get; set; }
+        //public virtual ICollection<Movie> Movies { get; set; }
         
     }
 }
