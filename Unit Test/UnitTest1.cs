@@ -121,10 +121,15 @@ namespace Unit_Test
                     session.Save(po);
                     transaction.Commit();
 
+                    PurchaseOrderItem query1 = session.QueryOver<PurchaseOrderItem>().Where(x => x.Quantity == 900).SingleOrDefault();
+                    Guid id = query1.Id;
+
+
                     var res = session.Get<PurchaseOrderItem>(purchaseOrderItem.Id);
                     Assert.AreEqual(purchaseOrderItem.NetPrice, res.NetPrice);
                 }
             }
         }
+      
     }
 }
