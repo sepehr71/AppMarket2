@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Market.Entities
 {
-    public abstract class OrderItem
+    public abstract class OrderItem:BaseEntity
     {
         public OrderItem()
         {
-            Id = new Guid();
+          
         }
-        public virtual Guid Id { get; set; }
+    
         public virtual decimal NetPrice { get; set; }
         public virtual int Quantity { get; set; }
         public virtual decimal TotalPrice { get; set; }

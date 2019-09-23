@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Market.Entities.Entity
 {
-    public class RackItemLevel
+    public class RackItemLevel:BaseEntity
     {
         public RackItemLevel()
         {
-            Id = new Guid();
+          
         }
-        public virtual Guid Id { get; set; }
+     
         public virtual int CurrentQuantity { get; set; }
         public virtual int InQuantity { get; set; }
         public virtual int OutQuantity { get; set; }
