@@ -8,7 +8,7 @@ namespace Market.Entities.Entity
 {
     public class PurchaseOrder: Order
     {
-        public PurchaseOrder()
+        public PurchaseOrder() 
         {
             PurchaseOrderItem = new List<PurchaseOrderItem>();
 

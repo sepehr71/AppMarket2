@@ -19,6 +19,5 @@ namespace Market.Entities.Entity
 
         public virtual Item Item { get; set; }
         public virtual Rack Rack { get; set; }
-
     }
 }

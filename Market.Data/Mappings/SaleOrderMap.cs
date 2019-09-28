@@ -14,7 +14,7 @@ namespace Market.Data.Mappings
     {
         public void Override(AutoMapping<SaleOrder> mapping)
         {
-            mapping.Id(x => x.Id);
+            mapping.Id(x => x.Id).GeneratedBy.Assigned();
             //mapping.Map(x => x.Code);
             //mapping.Map(x => x.CreationDate);
             //mapping.Map(x => x.Title);

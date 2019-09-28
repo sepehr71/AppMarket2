@@ -8,5 +8,9 @@ namespace Market.Entities.Entity
 {
     public class PurchaseOrderItem : OrderItem
     {
+        public PurchaseOrderItem()
+        {
+
+        }
     }
 }

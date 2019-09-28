@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Market.Entities
+namespace Market.UI
 {
-    public abstract class C
+    class Program
     {
-        public C()
+        static void Main(string[] args)
         {
-            Id = new Guid();
         }
-
-        public virtual Guid Id { get; set; }
     }
 }

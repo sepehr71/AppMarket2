@@ -14,12 +14,12 @@ namespace Market.Data.Mappings
     {
         public void Override(AutoMapping<RackItemLevel> mapping)
         {
-            mapping.Id(x => x.Id);
+            mapping.Id(x => x.Id).GeneratedBy.Assigned();
             //mapping.Map(x => x.CurrentQuantity);
             //mapping.Map(x => x.InQuantity);
             //mapping.Map(x => x.OutQuantity);
-            mapping.References(x => x.Item).Unique();
-            mapping.References(x => x.Rack).Unique();
+            mapping.References(x => x.Item);
+            mapping.References(x => x.Rack);
         }
     }
 }

@@ -13,15 +13,11 @@ namespace Market.Entities
         {
             //OrderItem = new List<OrderItem>();
             
-        } 
-      
+        }
         public virtual int Code { get; set; }
         public virtual DateTime CreationDate { get; set; }
         public virtual string Title { get; set; }
-
-
         //public virtual ICollection<OrderItem> OrderItem { get; set; }
-
     }
 
 }

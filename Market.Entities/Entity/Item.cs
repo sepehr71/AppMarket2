@@ -12,7 +12,7 @@ namespace Market.Entities.Entity
         {
            
         }
-       
+        
         public virtual int Code { get; set; }
         public virtual string Name { get; set; }
         public virtual Unit Unit { get; set; }

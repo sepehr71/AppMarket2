@@ -64,11 +64,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C.cs" />
+    <Compile Include="Contracts\ItemContract.cs" />
+    <Compile Include="Contracts\PurchaseOrderContract.cs" />
+    <Compile Include="Contracts\PurchaseOrderItemContract.cs" />
+    <Compile Include="Contracts\RackContract.cs" />
+    <Compile Include="Contracts\RackItemLevelContract.cs" />
+    <Compile Include="Contracts\SaleOrderContract.cs" />
+    <Compile Include="Contracts\SaleOrderItemContract.cs" />
     <Compile Include="Entity\BaseEntity.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Interfaces\IItemRepository.cs" />
+    <Compile Include="Interfaces\IPurchaseOrderRepository.cs" />
+    <Compile Include="Interfaces\IRackItemLevelRepository.cs" />
+    <Compile Include="Interfaces\IRackRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\ISaleOrderRepository.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

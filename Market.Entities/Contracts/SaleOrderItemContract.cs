@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Market.Entities.Entity
+namespace Market.Entities.Contracts
 {
-    public class SaleOrderItem : OrderItem
+    public class SaleOrderItemContract
     {
-        public SaleOrderItem() 
-        {
 
-        }
     }
 }

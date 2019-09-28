@@ -18,8 +18,6 @@ namespace Market.Data
     public class NhibernateHelper : DefaultAutomappingConfiguration
     {
         private static ISessionFactory _factory;
-
-
         private static ISessionFactory SessionFactory
         {
             get
@@ -38,7 +36,7 @@ namespace Market.Data
 
                     var configuration =
                         fluentConfiguration.Mappings(m =>
-                            m.AutoMappings.Add(AutoMap.AssemblyOf<Item>(cfgi)
+                            m.AutoMappings.Add(AutoMap.AssemblyOf<Item>(cfgi.ShouldMap)
                                 .UseOverridesFromAssemblyOf<ItemMap>())
                         );
                     var buildSessionFactory = configuration.ExposeConfiguration(cfg =>
