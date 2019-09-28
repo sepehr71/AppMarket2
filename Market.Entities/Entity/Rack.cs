@@ -10,7 +10,7 @@ namespace Market.Entities.Entity
     {
         public Rack()
         {
-            //Racks = new List<Rack>();
+            Racks = new List<Rack>();
         }
         public virtual string Name { get; set; }
         public virtual int Code { get; set; }

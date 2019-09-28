@@ -1,9 +1,9 @@
-﻿using Market.Entities.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Market.Entities.Interfaces;
 using Market.Entities.Contracts;
 using Market.Entities.Entity;
 
@@ -26,7 +26,7 @@ namespace Market.Services
 
             else
             {
-                item=new Item();
+                item = new Item();
                 item.Code = ItemContract.Code;
                 item.Name = ItemContract.Name;
                 item.Unit = ItemContract.Unit;

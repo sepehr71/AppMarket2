@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Market.Entities.Contracts
+using Market.Entities.Contracts;
 using Market.Entities.Entity;
 
 namespace Market.Services
@@ -14,7 +14,7 @@ namespace Market.Services
         public IRackRepository IRackRepository { get; set; }
         public void SaveCreateOrUpdate(RackContract RackContract)
         {
-            var rack = IRackRepository.Get(RackContract)
+            var rack = IRackRepository.Get(RackContract.Id);
 
                 if(rack !=null)
                 {
@@ -22,7 +22,7 @@ namespace Market.Services
                     rack.Limit = RackContract.Limit;
                     rack.Location = RackContract.Location;
                     rack.Name = RackContract.name;
-                    rack.Racks = RackContract.RackId;
+                    rack.Racks = RackContract.racks;
                     IRackRepository.Update(rack);
                 }
                 else
@@ -32,7 +32,7 @@ namespace Market.Services
                     rack.Limit = RackContract.Limit;
                     rack.Location = RackContract.Location;
                     rack.Name = RackContract.name;
-                    rack.Racks = RackContract.RackId;
+                    rack.Racks = RackContract.racks;
                     IRackRepository.Insert(rack);
                 }
         }

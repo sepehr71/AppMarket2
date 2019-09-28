@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Market.Entities.Interfaces;
 using Market.Entities.Contracts;
+using Market.Entities.Entity;
 
 
 namespace Market.Services
@@ -23,19 +24,19 @@ namespace Market.Services
                 rackitemlevel.CurrentQuantity = rackItemLevelContract.CurrentQuantity;
                 rackitemlevel.InQuantity = rackItemLevelContract.InQuantity;
                 rackitemlevel.Item = IItemRepository.Get(rackItemLevelContract.ItemId);
-                rackitemlevel.Rack = IitemRepository.Get(rackItemLevelContract.RackId);
+                rackitemlevel.Racks = IRackRepository.Get(rackItemLevelContract.RackId);
                 rackitemlevel.OutQuantity = rackItemLevelContract.OutQuantity;
-                rackitemlevel.Rack = rackItemLevelContract.RackId;
                 IRackItemLevelRepository.Update(rackitemlevel);
             }
             else
             {
+                rackitemlevel = new RackItemLevel();
                 rackitemlevel.CurrentQuantity = rackItemLevelContract.CurrentQuantity;
                 rackitemlevel.InQuantity = rackItemLevelContract.InQuantity;
                 rackitemlevel.Item = IItemRepository.Get(rackItemLevelContract.ItemId);
-                rackitemlevel.Rack = IitemRepository.Get(rackItemLevelContract.RackId);
+                rackitemlevel.Racks = IRackRepository.Get(rackItemLevelContract.RackId);
                 rackitemlevel.OutQuantity = rackItemLevelContract.OutQuantity;
-                rackitemlevel.Rack = rackItemLevelContract.RackId;
+               
                 IRackItemLevelRepository.Insert(rackitemlevel);
             }
         }

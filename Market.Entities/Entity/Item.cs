@@ -18,4 +18,10 @@ namespace Market.Entities.Entity
         public virtual Unit Unit { get; set; }
         
     }
+    public enum Unit
+    {
+        Kilo,
+        Meter,
+        Number,
+    }
 }

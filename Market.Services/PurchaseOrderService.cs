@@ -11,19 +11,24 @@ namespace Market.Services
 {
     public class PurchaseOrderService 
     {
-        public IPurchaseOrderRepository IPurchaseOrderItemRepository { get; set; }
+        public PurchaseOrderService()
+        {
+            IPurchaseOrderItemRepository = new List<IPurchaseOrderItemRepository>();
+        }
+        public IPurchaseOrderRepository IPurchaseOrderRepository { get; set; }
+        public List<IPurchaseOrderItemRepository> IPurchaseOrderItemRepository { get; set; }
 
         public void SaveCreateOrUpdate(PurchaseOrderContract PurchaseOrderContract)
         {
-            var PurchaseOrder = IPurchaseOrderItemRepository.Get(PurchaseOrderContract.Id);
-            //var PurchaseOrder = IPurchaseOrderRepository.Get(PurchaseOrderContract.Id);
+            var PurchaseOrder = IPurchaseOrderRepository.Get(PurchaseOrderContract.Id);
+            
             if (PurchaseOrder != null)
             {
                 PurchaseOrder.Code = PurchaseOrderContract.Code;
                 PurchaseOrder.CreationDate = PurchaseOrderContract.CreationDate;
-                PurchaseOrder.PurchaseOrderItem = PurchaseOrderContract.PurchaseOrderItems;
+              //  PurchaseOrder.PurchaseOrderItem = IPurchaseOrderItemRepository
                 PurchaseOrder.Title = PurchaseOrderContract.Title;
-                PurchaseOrderContract(PurchaseOrder);
+                IPurchaseOrderRepository.Update(PurchaseOrder);
             }
             else
             {
@@ -31,7 +36,7 @@ namespace Market.Services
                 PurchaseOrder.CreationDate = PurchaseOrderContract.CreationDate;
                 PurchaseOrder.PurchaseOrderItem = PurchaseOrderContract.PurchaseOrderItems;
                 PurchaseOrder.Title = PurchaseOrderContract.Title;
-                IPurchaseOrderItemRepository.Insert(PurchaseOrder);
+               // IPurchaseOrderItemRepository.Insert(PurchaseOrder);
             }
         }
     }

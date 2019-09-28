@@ -10,6 +10,10 @@ namespace Market.Entities.Contracts
 {
     public class PurchaseOrderContract
     {
+        public PurchaseOrderContract()
+        {
+            //PurchaseOrderItems = new List<PurchaseOrderItem>();
+        }
 
         public Guid Id { get; set; }
         public int Code { get; set; }

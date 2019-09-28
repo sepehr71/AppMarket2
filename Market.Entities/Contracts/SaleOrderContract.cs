@@ -9,6 +9,10 @@ namespace Market.Entities.Contracts
 {
     public class SaleOrderContract
     {
+        public SaleOrderContract()
+        {
+            //SaleOrderItems= new List<SaleOrderItem>();
+        }
         public Guid Id { get; set; }
         public int Code { get; set; }
         public DateTime CreationDate { get; set; }

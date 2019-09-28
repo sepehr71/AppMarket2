@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrderItemService.cs" />
     <Compile Include="PurchaseOrderService.cs" />
     <Compile Include="RackItemLevelService.cs" />
     <Compile Include="RackService.cs" />

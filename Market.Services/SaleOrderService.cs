@@ -27,6 +27,7 @@ namespace Market.Services
             }
             else
             {
+                
                 SaleOrder.Code = SaleOrderContract.Code;
                 SaleOrder.CreationDate = SaleOrderContract.CreationDate;
                 SaleOrder.SaleOrderItem = SaleOrderContract.SaleOrderItems;
