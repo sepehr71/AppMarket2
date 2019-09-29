@@ -11,6 +11,6 @@ namespace Market.Entities.Contracts
         public Guid Id { get; set; }
         public int Code { get; set; }
         public string Name { get; set; }
-        public string unit { get; set; }
+        public Unit unit { get; set; }
     }
 }

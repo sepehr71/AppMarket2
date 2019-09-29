@@ -15,7 +15,7 @@ namespace Market.Services
 
         public void SaveCreateOrUpdate(SaleOrderContract SaleOrderContract)
         {
-            var SaleOrder = ISaleOrderrepository.Get(SaleOrderContract.Id)
+            var SaleOrder = ISaleOrderrepository.Get(SaleOrderContract.Id);
 
             if(SaleOrder != null)
             {

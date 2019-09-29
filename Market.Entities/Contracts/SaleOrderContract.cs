@@ -11,7 +11,7 @@ namespace Market.Entities.Contracts
     {
         public SaleOrderContract()
         {
-            //SaleOrderItems= new List<SaleOrderItem>();
+            SaleOrderItems= new List<SaleOrderItem>();
         }
         public Guid Id { get; set; }
         public int Code { get; set; }

@@ -23,9 +23,10 @@ namespace Market.Services
             {
                 rackitemlevel.CurrentQuantity = rackItemLevelContract.CurrentQuantity;
                 rackitemlevel.InQuantity = rackItemLevelContract.InQuantity;
+                rackitemlevel.OutQuantity = rackItemLevelContract.OutQuantity;
                 rackitemlevel.Item = IItemRepository.Get(rackItemLevelContract.ItemId);
                 rackitemlevel.Racks = IRackRepository.Get(rackItemLevelContract.RackId);
-                rackitemlevel.OutQuantity = rackItemLevelContract.OutQuantity;
+
                 IRackItemLevelRepository.Update(rackitemlevel);
             }
             else
@@ -33,10 +34,10 @@ namespace Market.Services
                 rackitemlevel = new RackItemLevel();
                 rackitemlevel.CurrentQuantity = rackItemLevelContract.CurrentQuantity;
                 rackitemlevel.InQuantity = rackItemLevelContract.InQuantity;
+                rackitemlevel.OutQuantity = rackItemLevelContract.OutQuantity;
                 rackitemlevel.Item = IItemRepository.Get(rackItemLevelContract.ItemId);
                 rackitemlevel.Racks = IRackRepository.Get(rackItemLevelContract.RackId);
-                rackitemlevel.OutQuantity = rackItemLevelContract.OutQuantity;
-               
+                
                 IRackItemLevelRepository.Insert(rackitemlevel);
             }
         }

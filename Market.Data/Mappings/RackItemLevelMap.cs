@@ -19,7 +19,7 @@ namespace Market.Data.Mappings
             //mapping.Map(x => x.InQuantity);
             //mapping.Map(x => x.OutQuantity);
             mapping.References(x => x.Item);
-            mapping.References(x => x.Rack);
+            mapping.References(x => x.Racks);
         }
     }
 }

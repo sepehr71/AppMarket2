@@ -11,7 +11,7 @@ namespace Market.Entities.Contracts
     {
         public RackContract()
         {
-            //racks = new List<Rack>();
+            racks = new List<Rack>();
         }
         public Guid Id { get; set; }
         public string name { get; set; }

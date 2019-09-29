@@ -20,7 +20,7 @@ namespace Market.Services
             {
                 item.Code = ItemContract.Code;
                 item.Name = ItemContract.Name;
-                item.Unit = ItemContract.Unit;
+                item.Unit = ItemContract.unit;
                 IItemRepository.Update(item);
             }
 
@@ -29,7 +29,7 @@ namespace Market.Services
                 item = new Item();
                 item.Code = ItemContract.Code;
                 item.Name = ItemContract.Name;
-                item.Unit = ItemContract.Unit;
+                item.Unit = ItemContract.unit;
                 IItemRepository.Insert(item);
                 
             }

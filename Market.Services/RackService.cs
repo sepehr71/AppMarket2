@@ -11,6 +11,9 @@ namespace Market.Services
 {
     public class RackService 
     {
+        /// <summary>
+        ///  niaz be eslah darad
+        /// </summary>
         public IRackRepository IRackRepository { get; set; }
         public void SaveCreateOrUpdate(RackContract RackContract)
         {
