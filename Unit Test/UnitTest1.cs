@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Market.Entities;
 using Market.Entities.Entity;
 using NHibernate.Linq;
+using Unit = Market.Entities.Unit;
 
 namespace Unit_Test
 {
@@ -117,7 +118,7 @@ namespace Unit_Test
                         Rack = rack
                     };
 
-                    po.PurchaseOrderItem.Add(purchaseOrderItem);
+                    po.PurchaseOrderItems.Add(purchaseOrderItem);
                     session.Save(po);
                     transaction.Commit();
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Market.Entities.Contracts;
 
 namespace Market.Entities.Entity
 {
@@ -10,9 +11,9 @@ namespace Market.Entities.Entity
     {
         public PurchaseOrder() 
         {
-            PurchaseOrderItem = new List<PurchaseOrderItem>();
-
+            PurchaseOrderItems = new List<PurchaseOrderItem>();
         }
-        public virtual ICollection<PurchaseOrderItem> PurchaseOrderItem { get; set; }
+        public virtual List<PurchaseOrderItem> PurchaseOrderItems { get; set; }
+        
     }
 }

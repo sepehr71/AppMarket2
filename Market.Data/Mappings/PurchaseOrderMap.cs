@@ -18,7 +18,7 @@ namespace Market.Data.Mappings
             //mapping.Map(x => x.Code);
             //mapping.Map(x => x.CreationDate);
             //mapping.Map(x => x.Title);
-            mapping.HasMany(x => x.PurchaseOrderItem).Cascade.All();
+            mapping.HasMany(x => x.PurchaseOrderItems).Cascade.All();
         }
     }
 }

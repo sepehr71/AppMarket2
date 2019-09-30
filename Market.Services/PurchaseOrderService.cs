@@ -16,20 +16,19 @@ namespace Market.Services
         public IRackRepository IRackRepository { get; set; }
         public void SaveCreateOrUpdate(PurchaseOrderContract purchaseOrderContract )
         {
-            var PurchaseOrder = IPurchaseOrderRepository.Get(purchaseOrderContract.Id);
-            
-            if (PurchaseOrder != null)
-            {
-                //PurchaseOrder.Code = purchaseOrderContract.Code;
-                //PurchaseOrder.CreationDate = purchaseOrderContract.CreationDate;
-                //PurchaseOrder.Title = purchaseOrderContract.Title;
+            var PurchaseOrderDB = IPurchaseOrderRepository.Get(purchaseOrderContract.Id);
 
-                for (int i = 0; i < purchaseOrderContract.PurchaseOrderItems.Count; i++)
+            if (PurchaseOrderDB != null)
+            {
+
+                for (int i = 0; i < purchaseOrderContract.PurchaseOrderItemsContracts.Count; i++)
                 {
-                   var temp = purchaseOrderContract.PurchaseOrderItems[i];
-                   if (PurchaseOrder.PurchaseOrderItem.Any(s => s.Id == temp.Id))
+                    
+                    var temp = purchaseOrderContract.PurchaseOrderItemsContracts[i];
+
+                   if (PurchaseOrderDB.PurchaseOrderItems.Any(s => s.Id == temp.Id))
                    {
-                        var indatabaseorderitem = PurchaseOrder.PurchaseOrderItem.FirstOrDefault(s => s.Id == temp.Id);
+                        var indatabaseorderitem = PurchaseOrderDB.PurchaseOrderItems.FirstOrDefault(s => s.Id == temp.Id);
                         indatabaseorderitem.NetPrice = temp.NetPrice;
                         indatabaseorderitem.Quantity = temp.Quantity;
                         indatabaseorderitem.TotalPrice = temp.TotalPrice;
@@ -37,7 +36,6 @@ namespace Market.Services
                         //todo eslah behtar minevisim
                         indatabaseorderitem.Item = IItemRepository.Get(temp.ItemId);
                         indatabaseorderitem.Rack = IRackRepository.Get(temp.RackId);
-                        
                    }
                    else 
                    {
@@ -48,42 +46,52 @@ namespace Market.Services
                         purchaseorderitem.UnitPrice = temp.UnitPrice;
                         purchaseorderitem.Item = IItemRepository.Get(temp.ItemId);
                         purchaseorderitem.Rack = IRackRepository.Get(temp.RackId);
+                        PurchaseOrderDB.PurchaseOrderItems.Add(purchaseorderitem);
+                        
                    }
                 }
-                //if you want delete one or more item deleted
-                for (int i = 0; i < purchaseOrderContract.PurchaseOrderItems.Count; i++)
+
+                //if you want delete one or more to item deleted
+                for (int i = 0; i < PurchaseOrderDB.PurchaseOrderItems.Count; i++)
                 {
+                    var temp = PurchaseOrderDB.PurchaseOrderItems[i];
 
+                    if (purchaseOrderContract.PurchaseOrderItemsContracts.All(s => s.Id != temp.Id))
+                    {
+                        PurchaseOrderDB.PurchaseOrderItems.Remove(temp);
+                    }
                 }
-
-                
-                IPurchaseOrderRepository.Update(PurchaseOrder);
+                IPurchaseOrderRepository.Update(PurchaseOrderDB);
             }
             else
             {
-                PurchaseOrder = new PurchaseOrder();
-                PurchaseOrder.Code = purchaseOrderContract.Code;
-                PurchaseOrder.CreationDate = purchaseOrderContract.CreationDate;
-                PurchaseOrder.Title = purchaseOrderContract.Title;
-
-                for (int i = 0; i < purchaseOrderContract.PurchaseOrderItems.Count; i++)
+                PurchaseOrderDB = new PurchaseOrder();
+                PurchaseOrderDB.Code = purchaseOrderContract.Code;
+                PurchaseOrderDB.CreationDate = purchaseOrderContract.CreationDate;
+                PurchaseOrderDB.Title = purchaseOrderContract.Title;
+                for (int i = 0; i < purchaseOrderContract.PurchaseOrderItemsContracts.Count; i++)
                 {
-                    var temp = purchaseOrderContract.PurchaseOrderItems[i];
-                  
-                        PurchaseOrderItem purchaseorderitem = new PurchaseOrderItem();
-                        purchaseorderitem.NetPrice = temp.NetPrice;
-                        purchaseorderitem.Quantity = temp.Quantity;
-                        purchaseorderitem.TotalPrice = temp.TotalPrice;
-                        purchaseorderitem.UnitPrice = temp.UnitPrice;
-                        purchaseorderitem.Item = IItemRepository.Get(temp.ItemId);
-                        purchaseorderitem.Rack = IRackRepository.Get(temp.RackId);
-                    
+                    var temp = purchaseOrderContract.PurchaseOrderItemsContracts[i];
 
+                    PurchaseOrderItem purchaseorderitem = new PurchaseOrderItem();
+                    purchaseorderitem.NetPrice = temp.NetPrice;
+                    purchaseorderitem.Quantity = temp.Quantity;
+                    purchaseorderitem.TotalPrice = temp.TotalPrice;
+                    purchaseorderitem.UnitPrice = temp.UnitPrice;
+                    purchaseorderitem.Item = IItemRepository.Get(temp.ItemId);
+                    purchaseorderitem.Rack = IRackRepository.Get(temp.RackId);
+
+                    PurchaseOrderDB.PurchaseOrderItems.Add(purchaseorderitem);
+                   
                 }
-
-                IPurchaseOrderRepository.Insert(PurchaseOrder);
+                IPurchaseOrderRepository.Insert(PurchaseOrderDB);
 
             }
+        }
+
+        public void Delete(PurchaseOrderContract purchaseOrderContract)
+        {
+
         }
     }
 }
