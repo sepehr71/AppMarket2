@@ -14,6 +14,5 @@ namespace Market.Entities.Contracts
         public int CurrentQuantity { get; set; }
         public int InQuantity { get; set; }
         public int OutQuantity { get; set; }
-        
     }
 }

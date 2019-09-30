@@ -17,27 +17,43 @@ namespace Market.Services
         public IRackRepository IRackRepository { get; set; }
         public void SaveCreateOrUpdate(RackContract RackContract)
         {
-            var rack = IRackRepository.Get(RackContract.Id);
+            var rackDB = IRackRepository.Get(RackContract.Id);
 
-                if(rack !=null)
+            
+            if (rackDB != null)
+            {
+                rackDB.Code = RackContract.Code;
+                rackDB.Limit = RackContract.Limit;
+                rackDB.Location = RackContract.Location;
+                rackDB.Name = RackContract.name; 
+                for (int i = 0; i < RackContract; i++)
                 {
-                    rack.Code = RackContract.Code;
-                    rack.Limit = RackContract.Limit;
-                    rack.Location = RackContract.Location;
-                    rack.Name = RackContract.name;
-                    rack.Racks = RackContract.racks;
-                    IRackRepository.Update(rack);
+                    var temp = RackContract.racksContract[i];
+                    if (rackDB.Racks.Any(s =>s.Id == temp.Id))
+                    {
+                        var indatabaseracks = rackDB.Racks.FirstOrDefault(s => s.Id == temp.Id);
+                        indatabaseracks.Racks = IRackRepository.Get(temp.Racks);
+
+                    }
+                    else
+                    {
+                        
+
+                    }
+                   
                 }
-                else
-                {
-                    rack = new Rack();
-                    rack.Code = RackContract.Code;
-                    rack.Limit = RackContract.Limit;
-                    rack.Location = RackContract.Location;
-                    rack.Name = RackContract.name;
-                    rack.Racks = RackContract.racks;
-                    IRackRepository.Insert(rack);
-                }
+                IRackRepository.Update(rackDB);
+            }
+            else
+            {
+                rackDB = new Rack();
+                rackDB.Code = RackContract.Code;
+                rackDB.Limit = RackContract.Limit;
+                rackDB.Location = RackContract.Location;
+                rackDB.Name = RackContract.name;
+                rackDB.Racks = RackContract.racksContract;
+                IRackRepository.Insert(rackDB);
+            }
         }
     }
 }

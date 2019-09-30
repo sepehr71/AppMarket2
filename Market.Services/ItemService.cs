@@ -12,26 +12,23 @@ namespace Market.Services
     public class ItemService  
     {
         public IItemRepository IItemRepository { get; set; }
-        public void SaveCreateOrUpdate(ItemContract ItemContract)
+        public void SaveCreateOrUpdate(ItemContract itemContract)
         {
-            var item = IItemRepository.Get(ItemContract.Id);
-
+            var item = IItemRepository.Get(itemContract.Id);
             if (item!=null)
             {
-                item.Code = ItemContract.Code;
-                item.Name = ItemContract.Name;
-                item.Unit = ItemContract.unit;
+                item.Code = itemContract.Code;
+                item.Name = itemContract.Name;
+                item.Unit = itemContract.unit;
                 IItemRepository.Update(item);
             }
-
             else
             {
                 item = new Item();
-                item.Code = ItemContract.Code;
-                item.Name = ItemContract.Name;
-                item.Unit = ItemContract.unit;
+                item.Code = itemContract.Code;
+                item.Name = itemContract.Name;
+                item.Unit = itemContract.unit;
                 IItemRepository.Insert(item);
-                
             }
         } 
     }
