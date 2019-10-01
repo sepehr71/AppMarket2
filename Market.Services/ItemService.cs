@@ -11,7 +11,9 @@ namespace Market.Services
 {
     public class ItemService  
     {
+
         public IItemRepository IItemRepository { get; set; }
+
         public void SaveCreateOrUpdate(ItemContract itemContract)
         {
             var item = IItemRepository.Get(itemContract.Id);
@@ -22,6 +24,7 @@ namespace Market.Services
                 item.Unit = itemContract.unit;
                 IItemRepository.Update(item);
             }
+
             else
             {
                 item = new Item();
@@ -30,6 +33,11 @@ namespace Market.Services
                 item.Unit = itemContract.unit;
                 IItemRepository.Insert(item);
             }
-        } 
+        }
+
+        public void Delete()
+        {
+
+        }
     }
 }

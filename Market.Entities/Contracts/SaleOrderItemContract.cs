@@ -8,6 +8,13 @@ namespace Market.Entities.Contracts
 {
     public class SaleOrderItemContract
     {
+        public Guid Id { get; set; }
+        public Guid ItemId { get; set; }
+        public Guid RackId { get; set; }
+        public decimal NetPrice { get; set; }
+        public int Quantity { get; set; }
+        public decimal TotalPrice { get; set; }
+        public decimal UnitPrice { get; set; }
 
     }
 }

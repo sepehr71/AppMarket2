@@ -4,8 +4,10 @@ using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate.Linq;
 
 namespace Market.Data.Repositories
 {
@@ -14,40 +16,23 @@ namespace Market.Data.Repositories
         private ISession session;
         public IQueryable<Item> GetAll()
         {
-            throw new NotImplementedException();
+            return session.Query<Item>().AsQueryable();
         }
-
         public Item Get(Guid id)
         {
-            Item item = session.Get<Item>(itemId);
-            return item;
+           return session.Get<Item>(id);
         }
-
         public void Insert(Item obj)
         {
-            using (var transaction = session.BeginTransaction())
-            {
-                session.Save(obj);
-                transaction.Commit();
-            }
+            session.Save(obj);
         }
-
         public void Update(Item obj)
         {
-            using (var transaction = session.BeginTransaction())
-            {
-                session.SaveOrUpdate(obj);
-                transaction.Commit();
-            }
+            session.Update(obj);
         }
-
         public void Delete(Item obj)
         {
-            using (var transaction = session.BeginTransaction())
-            {
-                session.Delete(obj);
-                transaction.Commit();
-            }
+            session.Delete(obj);
         }
     }
 }

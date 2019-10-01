@@ -20,15 +20,14 @@ namespace Market.Services
 
             if (PurchaseOrderDB != null)
             {
-
                 for (int i = 0; i < purchaseOrderContract.PurchaseOrderItemsContracts.Count; i++)
                 {
-                    
                     var temp = purchaseOrderContract.PurchaseOrderItemsContracts[i];
+                    if (PurchaseOrderDB.PurchaseOrderItems.Any(s => s.Id == temp.Id))
+                    {
 
-                   if (PurchaseOrderDB.PurchaseOrderItems.Any(s => s.Id == temp.Id))
-                   {
                         var indatabaseorderitem = PurchaseOrderDB.PurchaseOrderItems.FirstOrDefault(s => s.Id == temp.Id);
+
                         indatabaseorderitem.NetPrice = temp.NetPrice;
                         indatabaseorderitem.Quantity = temp.Quantity;
                         indatabaseorderitem.TotalPrice = temp.TotalPrice;
@@ -36,9 +35,9 @@ namespace Market.Services
                         //todo eslah behtar minevisim
                         indatabaseorderitem.Item = IItemRepository.Get(temp.ItemId);
                         indatabaseorderitem.Rack = IRackRepository.Get(temp.RackId);
-                   }
-                   else 
-                   {
+                    }
+                    else 
+                    {
                         PurchaseOrderItem purchaseorderitem = new PurchaseOrderItem();
                         purchaseorderitem.NetPrice = temp.NetPrice;
                         purchaseorderitem.Quantity = temp.Quantity;
@@ -47,8 +46,7 @@ namespace Market.Services
                         purchaseorderitem.Item = IItemRepository.Get(temp.ItemId);
                         purchaseorderitem.Rack = IRackRepository.Get(temp.RackId);
                         PurchaseOrderDB.PurchaseOrderItems.Add(purchaseorderitem);
-                        
-                   }
+                    }
                 }
 
                 //if you want delete one or more to item deleted

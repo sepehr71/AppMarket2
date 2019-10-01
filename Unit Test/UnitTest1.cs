@@ -69,6 +69,7 @@ namespace Unit_Test
                 }
             }
         }
+
         private Guid GetRackId()
         {
             using (var session = NhibernateHelper.OpenSession())
@@ -106,9 +107,10 @@ namespace Unit_Test
                     var racckId = GetRackId();
                     Rack rack = session.Get<Rack>(racckId);
 
-                    //var item1111 = session.QueryOver<Item>().Where(x => x.Name == "pen");
+                 
 
                     PurchaseOrder po = new PurchaseOrder { CreationDate = DateTime.Now, Title = "purchase1" };
+
                     PurchaseOrderItem purchaseOrderItem = new PurchaseOrderItem
                     {
                         NetPrice = 30,
@@ -125,12 +127,10 @@ namespace Unit_Test
                   //  PurchaseOrderItem query1 = session.QueryOver<PurchaseOrderItem>().Where(x => x.Quantity == 900).SingleOrDefault();
                   //  Guid id = query1.Id;
 
-
                     var res = session.Get<PurchaseOrderItem>(purchaseOrderItem.Id);
                     Assert.AreEqual(purchaseOrderItem.NetPrice, res.NetPrice);
                 }
             }
         }
-      
     }
 }

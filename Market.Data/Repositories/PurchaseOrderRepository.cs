@@ -6,38 +6,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate.Linq;
 
 namespace Market.Data.Repositories
 {
     public class PurchaseOrderRepository : IPurchaseOrderRepository
     {
         private ISession session;
-
-
-
+        
         public IQueryable<PurchaseOrder> GetAll()
         {
-            throw new NotImplementedException();
+            return session.Query<PurchaseOrder>().AsQueryable();
         }
 
         public PurchaseOrder Get(Guid id)
         {
-            
+            return session.Get<PurchaseOrder>(id);
         }
 
         public void Insert(PurchaseOrder obj)
         {
-            throw new NotImplementedException();
+            session.Save(obj);
         }
 
         public void Update(PurchaseOrder obj)
         {
-            throw new NotImplementedException();
+            session.Update(obj);
+            
         }
 
         public void Delete(PurchaseOrder obj)
         {
-            throw new NotImplementedException();
+            session.Delete(obj);
         }
     }
 }

@@ -100,6 +100,10 @@
       <Project>{7adefc48-0e8f-4b2d-9cec-0ef9aa728fab}</Project>
       <Name>Market.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Market.Services\Market.Services.csproj">
+      <Project>{26E28A36-E651-4EBC-B41C-2D020338FB85}</Project>
+      <Name>Market.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
