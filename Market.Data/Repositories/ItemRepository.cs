@@ -2,12 +2,14 @@
 using Market.Entities.Interfaces;
 using NHibernate;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using NHibernate.Linq;
+using NHibernate.Mapping;
 
 namespace Market.Data.Repositories
 {
@@ -16,7 +18,9 @@ namespace Market.Data.Repositories
         private ISession session;
         public IQueryable<Item> GetAll()
         {
-            return session.Query<Item>().AsQueryable();
+
+             return session.Query<Item>().AsQueryable();
+
         }
         public Item Get(Guid id)
         {

@@ -20,7 +20,7 @@ namespace Market.Data.Mappings
             //mapping.Map(x => x.Code);
             //mapping.Map(x => x.Limit);
             //mapping.Map(x => x.Location);
-            mapping.HasMany(x => x.Racks).Cascade.All();
+            mapping.References(x => x.Racks);
         }
     }
 }

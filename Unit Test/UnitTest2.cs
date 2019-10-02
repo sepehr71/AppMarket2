@@ -13,8 +13,8 @@ namespace Unit_Test
         [TestMethod]
         public void Test1()
         {
-            ItemService itemService = new ItemService();
 
+            ItemService itemService = new ItemService();
             ItemContract item = new ItemContract()
             {
                 Code = 2323,

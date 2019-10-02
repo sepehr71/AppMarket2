@@ -12,7 +12,7 @@ namespace Market.Entities.Contracts
 
         public RackContract()
         {
-            Racks = new List<Rack>();
+            
         }
 
         public Guid Id { get; set; }
@@ -20,6 +20,6 @@ namespace Market.Entities.Contracts
         public int Code { get; set; }
         public int Limit { get; set; }
         public string Location { get; set; }
-        public List<Rack> Racks { get; set; }
+        public Guid RackID { get; set; }
     }
 }

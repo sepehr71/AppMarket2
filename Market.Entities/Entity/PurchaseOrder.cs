@@ -13,7 +13,7 @@ namespace Market.Entities.Entity
         {
             PurchaseOrderItems = new List<PurchaseOrderItem>();
         }
-        public virtual List<PurchaseOrderItem> PurchaseOrderItems { get; set; }
+      public virtual IList<PurchaseOrderItem> PurchaseOrderItems { get; set; }
         
     }
 }

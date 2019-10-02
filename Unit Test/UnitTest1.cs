@@ -101,13 +101,14 @@ namespace Unit_Test
             {
                 using (var transaction = session.BeginTransaction())
                 {
+
                     var itemId = GetItemId();
+
                     Item item = session.Get<Item>(itemId);
 
                     var racckId = GetRackId();
-                    Rack rack = session.Get<Rack>(racckId);
 
-                 
+                    Rack rack = session.Get<Rack>(racckId);
 
                     PurchaseOrder po = new PurchaseOrder { CreationDate = DateTime.Now, Title = "purchase1" };
 

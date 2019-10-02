@@ -14,7 +14,8 @@ namespace Market.Entities.Interfaces
     
     public interface IRepository<T> : IRepository where T : BaseEntity
     {
-        IQueryable<T> GetAll();
+  //  List<T> GetAll();
+      IQueryable<T> GetAll();
         T Get(Guid id);
         void Insert(T obj);
         void Update(T obj);

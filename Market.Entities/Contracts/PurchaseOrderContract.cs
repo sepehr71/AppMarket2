@@ -18,7 +18,7 @@ namespace Market.Entities.Contracts
         public int Code { get; set; }
         public DateTime CreationDate { get; set; }
         public string Title { get; set; }
-        public List<PurchaseOrderItemContract> PurchaseOrderItemsContracts { get; set; }
+        public IList<PurchaseOrderItemContract> PurchaseOrderItemsContracts { get; set; }
 
     }
 }

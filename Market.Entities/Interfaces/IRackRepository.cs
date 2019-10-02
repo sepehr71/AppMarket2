@@ -10,6 +10,7 @@ namespace Market.Entities.Interfaces
     public interface IRackRepository : IRepository<Rack>
     {
 
-       
+
+    
     }
 }

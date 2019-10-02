@@ -83,10 +83,8 @@ namespace Market.Services
                    
                 }
                 IPurchaseOrderRepository.Insert(PurchaseOrderDB);
-
             }
         }
-
         public void Delete(PurchaseOrderContract purchaseOrderContract)
         {
 
